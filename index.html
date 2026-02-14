@@ -3,21 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MOD SAFE</title>
+<title>i's black auxílio</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial;}
 
 body{
-  background:linear-gradient(135deg,#000,#1a0000,#000);
-  background-size:300% 300%;
-  animation:bg 8s infinite alternate;
+  background:black;
   color:white;
+  overflow:hidden;
 }
 
-@keyframes bg{
-  0%{background-position:0% 50%;}
-  100%{background-position:100% 50%;}
+#bgAnimado{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
 }
 
 #loadingInicial{
@@ -42,7 +45,7 @@ body{
   border-radius:15px;
   width:280px;
   text-align:center;
-  box-shadow:0 0 20px red;
+  box-shadow:0 0 20px #00ff88;
 }
 
 input{
@@ -55,13 +58,15 @@ input{
 
 button{
   width:100%;
-  padding:10px;
-  margin-top:10px;
+  padding:12px;
+  margin-top:12px;
   border:none;
-  border-radius:8px;
-  background:red;
-  color:white;
+  border-radius:10px;
+  background:#00ff88;
+  color:black;
   font-weight:bold;
+  font-size:15px;
+  cursor:pointer;
 }
 
 #painel{display:none;}
@@ -70,7 +75,7 @@ button{
   text-align:center;
   padding:15px;
   font-size:22px;
-  text-shadow:0 0 10px red;
+  text-shadow:0 0 10px #00ff88;
 }
 
 .sidebar{
@@ -97,8 +102,8 @@ button{
 }
 
 @keyframes neon{
-  from{box-shadow:0 0 5px red;}
-  to{box-shadow:0 0 15px red;}
+  from{box-shadow:0 0 5px #00ff88;}
+  to{box-shadow:0 0 15px #00ff88;}
 }
 
 .content{
@@ -108,27 +113,28 @@ button{
 
 .card{
   background:#111;
-  padding:12px;
-  border-radius:12px;
-  margin-bottom:10px;
+  padding:16px;
+  border-radius:14px;
+  margin-bottom:14px;
   display:flex;
   justify-content:space-between;
   align-items:center;
+  font-size:16px;
 }
 
 .switch{
-  width:50px;
-  height:25px;
+  width:65px;
+  height:32px;
   background:#333;
-  border-radius:20px;
+  border-radius:25px;
   position:relative;
   cursor:pointer;
 }
 
 .switch::after{
   content:"";
-  width:21px;
-  height:21px;
+  width:28px;
+  height:28px;
   background:white;
   position:absolute;
   top:2px;
@@ -137,15 +143,16 @@ button{
   transition:.3s;
 }
 
-.switch.on{background:red;}
-.switch.on::after{left:27px;}
+.switch.on{background:#00ff88;}
+.switch.on::after{left:35px;}
 
 .secao{display:none;}
 
 #contador{
   text-align:center;
-  margin-bottom:10px;
-  color:#ff4444;
+  margin-bottom:12px;
+  color:#00ff88;
+  font-size:16px;
 }
 
 #crosshair{
@@ -155,7 +162,7 @@ button{
   transform:translate(-50%,-50%);
   width:25px;
   height:25px;
-  border:2px solid red;
+  border:2px solid #00ff88;
   border-radius:50%;
   display:none;
 }
@@ -175,10 +182,12 @@ button{
 
 <body>
 
+<canvas id="bgAnimado"></canvas>
+
 <div id="loadingInicial">Carregando painel...</div>
 
 <div id="login">
-  <h2>MOD SAFE</h2>
+  <h2>i's black auxílio</h2>
   <input type="password" id="senha">
   <button onclick="verSenha()">Ver senha</button>
   <button onclick="entrar()">Entrar</button>
@@ -186,8 +195,7 @@ button{
 </div>
 
 <div id="painel">
-
-<div class="topo">MOD SAFE PANEL</div>
+<div class="topo">i's black auxílio</div>
 
 <div class="sidebar">
   <div class="tab aimGlow" onclick="abrir('aim')">AIM</div>
@@ -196,23 +204,22 @@ button{
 </div>
 
 <div class="content">
-
 <div id="contador">Funções ativas: 0</div>
 
 <div id="aim" class="secao">
   <div class="card">Auto-aim <div class="switch" onclick="toggle(this,'aim')"></div></div>
   <div class="card">No recoil <div class="switch" onclick="toggle(this)"></div></div>
   <div class="card">Speed hack <div class="switch" onclick="toggle(this)"></div></div>
-  <div class="card">God mode <div class="switch" onclick="toggle(this)"></div></div>
+  <div class="card">Headshot <div class="switch" onclick="toggle(this)"></div></div>
   <div class="card">Teleport <div class="switch" onclick="toggle(this)"></div></div>
 </div>
 
 <div id="visual" class="secao">
-  <div class="card">Wallhack <div class="switch" onclick="toggle(this)"></div></div>
-  <div class="card">Radar hack <div class="switch" onclick="toggle(this)"></div></div>
-  <div class="card">Mod de dano <div class="switch" onclick="toggle(this)"></div></div>
-  <div class="card">Munição infinita <div class="switch" onclick="toggle(this)"></div></div>
-  <div class="card">Anti-ban falso <div class="switch" onclick="toggle(this)"></div></div>
+  <div class="card">Auxilio 100%  <div class="switch" onclick="toggle(this)"></div></div>
+  <div class="card">Esp <div class="switch" onclick="toggle(this)"></div></div>
+  <div class="card">Aimbot <div class="switch" onclick="toggle(this)"></div></div>
+  <div class="card">Aimlock <div class="switch" onclick="toggle(this)"></div></div>
+  <div class="card">Anti-ban  <div class="switch" onclick="toggle(this)"></div></div>
 </div>
 
 <div id="config" class="secao">
@@ -220,7 +227,16 @@ button{
     Sensibilidade
     <input type="range" min="1" max="200">
   </div>
+
   <button onclick="abrirJogo()">ENTRAR NO JOGO</button>
+
+  <button onclick="liberarArquivo()">ACESSAR ARQUIVO</button>
+
+  <div id="downloadArea" style="display:none; margin-top:10px; text-align:center;">
+    <a href="🌸FF NORMAL🌸 HOLOGRAMA ROSA ATUALIZADO SAFE RANK E CS🌸.zip" download style="color:#00ff88; font-weight:bold;">
+      📥 BAIXAR ARQUIVO
+    </a>
+  </div>
 </div>
 
 </div>
@@ -230,53 +246,107 @@ button{
 <div id="loadingJogo">Abrindo jogo...</div>
 
 <script>
+const canvas = document.getElementById("bgAnimado");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particles=[];
+for(let i=0;i<80;i++){
+particles.push({
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height,
+vx:(Math.random()-0.5)*1,
+vy:(Math.random()-0.5)*1
+});
+}
+
+function animate(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+ctx.fillStyle="#00ff88";
+
+particles.forEach(p=>{
+p.x+=p.vx;
+p.y+=p.vy;
+if(p.x<0||p.x>canvas.width)p.vx*=-1;
+if(p.y<0||p.y>canvas.height)p.vy*=-1;
+ctx.beginPath();
+ctx.arc(p.x,p.y,2,0,Math.PI*2);
+ctx.fill();
+});
+
+for(let i=0;i<particles.length;i++){
+for(let j=i+1;j<particles.length;j++){
+let dx=particles[i].x-particles[j].x;
+let dy=particles[i].y-particles[j].y;
+let dist=Math.sqrt(dx*dx+dy*dy);
+if(dist<120){
+ctx.strokeStyle="rgba(0,255,136,0.2)";
+ctx.beginPath();
+ctx.moveTo(particles[i].x,particles[i].y);
+ctx.lineTo(particles[j].x,particles[j].y);
+ctx.stroke();
+}
+}
+}
+
+requestAnimationFrame(animate);
+}
+animate();
+
 setTimeout(()=>{
-  loadingInicial.style.display="none";
+loadingInicial.style.display="none";
 },2000);
 
 let senhaCorreta="bnsanttos";
 let ativos=0;
 
 function entrar(){
-  if(senha.value===senhaCorreta){
-    login.style.display="none";
-    painel.style.display="block";
-    abrir('aim');
-  }else{
-    erro.innerText="Senha incorreta";
-  }
+if(senha.value===senhaCorreta){
+login.style.display="none";
+painel.style.display="block";
+abrir('aim');
+}else{
+erro.innerText="Senha incorreta";
+}
 }
 
 function verSenha(){
-  senha.type=senha.type==="password"?"text":"password";
+senha.type=senha.type==="password"?"text":"password";
 }
 
 function abrir(sec){
-  document.querySelectorAll(".secao")
-  .forEach(s=>s.style.display="none");
-
-  document.getElementById(sec).style.display="block";
+document.querySelectorAll(".secao")
+.forEach(s=>s.style.display="none");
+document.getElementById(sec).style.display="block";
 }
 
 function toggle(el,tipo){
-  el.classList.toggle("on");
-
-  if(el.classList.contains("on")) ativos++;
-  else ativos--;
-
-  contador.innerText="Funções ativas: "+ativos;
-
-  if(tipo==="aim"){
-    crosshair.style.display=
-      el.classList.contains("on")?"block":"none";
-  }
+el.classList.toggle("on");
+if(el.classList.contains("on")) ativos++;
+else ativos--;
+contador.innerText="Funções ativas: "+ativos;
+if(tipo==="aim"){
+crosshair.style.display=el.classList.contains("on")?"block":"none";
+}
 }
 
 function abrirJogo(){
-  loadingJogo.style.display="flex";
-  window.location.href="intent://#Intent;package=com.dts.freefireth;end";
+loadingJogo.style.display="flex";
+setTimeout(()=>{
+window.location.href="intent://#Intent;package=com.dts.freefireth;end";
+},2000);
+}
+
+function liberarArquivo(){
+let senhaDownload=prompt("Digite a senha para acessar o arquivo:");
+if(senhaDownload==="is black"){
+document.getElementById("downloadArea").style.display="block";
+}else{
+alert("Senha incorreta!");
+}
 }
 </script>
 
 </body>
-</html>
+  </html>
